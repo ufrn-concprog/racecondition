@@ -1,5 +1,3 @@
-#include <chrono>
-#include <cstdlib>
 #include <iostream>
 #include <thread>
 
@@ -12,8 +10,6 @@ void incrementCounter() {
 }
 
 int main() {
-    srand(time(NULL));
-
     std::thread t1(incrementCounter);
     std::thread t2(incrementCounter);
 
