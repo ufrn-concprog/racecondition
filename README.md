@@ -35,7 +35,7 @@ where `PROG` is either `racebook` or `fixedbook`. The value for `PROG` must exac
 
 **`racebook.go`**: both customers may report success, and the final seat count can go negative:
 
-```
+```bash
 Number of available seats: 1
 Customer A is trying to book a seat
 Customer B is trying to book a seat
@@ -46,9 +46,9 @@ Seats remaining: -1
 
 This happens because both goroutines check seat availability before either updates it, but the check and the update are not treated as a single, indivisible (atomic) step.
 
-** `fixedbook.go`**: only one customer books the seat, consistently, on every run:
+**`fixedbook.go`**: only one customer books the seat, consistently, on every run:
 
-```
+```bash
 Number of available seats: 1
 Customer B is trying to book a seat
 Customer B booked a seat
