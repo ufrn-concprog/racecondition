@@ -14,11 +14,13 @@ func bookSeat(customer string) {
 		seatsAvailable--
 		fmt.Println(customer, "booked a seat")
 	} else {
-		fmt.Println("No seats available")
+		fmt.Println("No seats available for", customer)
 	}
 }
 
 func main() {
+	fmt.Println("Number of available seats:", seatsAvailable)
+
 	go bookSeat("Customer A")
 	go bookSeat("Customer B")
 
