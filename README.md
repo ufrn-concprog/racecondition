@@ -64,7 +64,7 @@ Seats remaining: 0
 
 The mutex wraps the **entire** check-and-book sequence, not just the final decrement. Locking only the write (a common first mistake) is not enough, since the incorrect decision to book has already been made by the time the write happens.
 
-## Key takeaways
+## 💡 Key takeaways
 
 - A *race condition* occurs when the outcome depends on the relative timing of concurrent operations.
 - A *critical section* must cover every step that handles the shared resource, including the check, not just the final write.
