@@ -9,7 +9,7 @@ There is **one seat available** on a flight. Two customers (*A* and *B*) try to 
 ## Files
 
 | File | Description |
-|---|---|
+| ---- | ------------ |
 | [`racebook.go`](racecondition.go) | Unsynchronized version. Both customers can pass the availability check before either one books, resulting in the seat being sold twice. |
 | [`fixedbook.go`](fixedbook.go) | Corrected version. The entire check-and-book sequence is protected by a mutex, so only one customer can book the seat. |
 
