@@ -4,7 +4,7 @@ A minimal Go example demonstrating a race condition and its fix, using a simplif
 
 ## Scenario
 
-There is **one seat available** on a flight. Two customers (`Customer A` and `Customer B`) try to book it nearly simultaneously, running as concurrent goroutines.
+There is **one seat available** on a flight. Two customers (*A* and *B*) try to book it nearly simultaneously, each running as a concurrent goroutine.
 
 ## Files
 
