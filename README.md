@@ -1,19 +1,25 @@
 # Race Condition Demo — Flight Ticket Booking
 
-A minimal Go example demonstrating a race condition and its fix, using a simplified flight seat booking scenario.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![Build](https://img.shields.io/badge/build-manual-lightgrey)
 
-## Scenario
+An educational repository with a minimal Go example that demonstrates a race condition and its fix, using a simplified flight seat-booking scenario. This project is part of the **Concurrent Programming** module at the [Federal University of Rio Grande do Norte (UFRN)](https://www.ufrn.br), Natal, Brazil.
+
+## 📃 Description
 
 There is **one seat available** on a flight. Two customers (*A* and *B*) try to book it nearly simultaneously, each running as a concurrent goroutine.
 
-## Files
+## 📂 Files
 
 | File | Description |
 | ---- | ------------ |
 | [`racebook.go`](racecondition.go) | Unsynchronized version. Both customers can pass the availability check before either one books, resulting in the seat being sold twice. |
 | [`fixedbook.go`](fixedbook.go) | Corrected version. The entire check-and-book sequence is protected by a mutex, so only one customer can book the seat. |
+| [`run.sh`](run.sh) | A ShellScript to run one of the programs multiple times on the terminal (currently 5) |
 
-## Running
+## ▶️ Running
+
+Prerequisite: Go [https://go.dev](Go) runtime installed on the operating system.
 
 ```bash
 go run racebook.go
@@ -31,7 +37,7 @@ sh run.sh PROG
 
 where `PROG` is either `racebook` or `fixedbook`. The value for `PROG` must exactly match the names of the Go files.
 
-## What to observe
+## 🔎 What to observe
 
 **`racebook.go`**: both customers may report success, and the final seat count can go negative:
 
@@ -63,3 +69,7 @@ The mutex wraps the **entire** check-and-book sequence, not just the final decre
 - A *race condition* occurs when the outcome depends on the relative timing of concurrent operations.
 - A *critical section* must cover every step that handles the shared resource, including the check, not just the final write.
 - *Mutual exclusion* (here, via the mutex) ensures only one goroutine executes the critical section at a time.
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
